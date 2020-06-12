@@ -57,10 +57,10 @@
 
                 <tr>
                     <td>
-                        <input type="button" value="确定" id="bn_sure" />
+                        <input type="button" value="确定" id="bn_sure" style="width:80px;"/>
                     </td>
                     <td>
-                        <input type="button" value="取消" id="bn_Cancle" />
+                        <input type="button" value="取消" id="bn_Cancle"style="width:80px;margin-left:120px;" />
                     </td>
 
                 </tr>
@@ -71,6 +71,9 @@
                     @*<img src="#" id="QRImg" />*@
 
                
+            </div>
+            <div style="width:80px;margin:auto;">
+                <button id="download" style="width:80px">下载</button>
             </div>
         </div>
 
@@ -84,13 +87,16 @@
 
 
                 </div>
-                <input type="button" id="uplodBtn" value="确定"/>
+                <div style="width:80px;margin:auto;">
+                    <input type="button" id="uplodBtn" value="确定" style="width:80px;" />
+                </div>
+               
             </div>
           
             <div id="messageinfo">
-               <div style="width:150px;margin:auto;font-weight:800">二维码解析信息： </div> 
+               <div style="width:140px;margin:auto;font-weight:800">二维码解析信息： </div> 
                 
-                <textarea id="messageinfotext" style="width:300px;height:80px;border:1px solid black"> </textarea>
+                <textarea id="messageinfotext" style="width:300px;height:95px;border:1px solid black"> </textarea>
             </div>
 
         </div>
@@ -98,9 +104,10 @@
 
     </div>
   <script type="text/javascript">
-
+     
       $(function () {
-
+          
+          var url = "";
           $("#bn_sure").click(function () {
               var intext = $("#IN").val();
               $.ajax({
@@ -113,8 +120,10 @@
                       if (res.IsTrue)
                       {
                           //$("#QRImg").attr('src', src = res.path ); //显示图片
-                          $("#QRIMG").append(" <img src=" + '../' + res.path + " />")
-                          $("#QRIMG").append("<div><span>路径：" + res.path + "</span></div>")
+                          $("#QRIMG").append("<div style='width:200px;margin-top:10px;  margin:auto;'> <img src=" + '../' + res.path + "  id='load'/></div>")
+                          //$("#QRIMG").append("<div><a href=../" + res.path + ">下载 </a></div>")
+                          //$("#QRIMG").append("<div><button id='downLoad'>下载</button></div>")
+                          url = "../" + res.path;
                       }
                       else
                       {
@@ -157,23 +166,20 @@
                   {
 
                   }
-
-
-
-
               })
-
-
           })
 
-
+          ///下载
+          $("#download").click(function () {
+              var intext = $("#IN").val();
+              let alink = document.createElement("a");
+              alink.download = intext;//文件名,大部分浏览器兼容,IE10及以下不兼容
+              alink.href = url;//创建 url地址
+              alink.click(); //自动点击
+          })
+       
 
       })
-
-
-
-
-
   </script>
 
 
