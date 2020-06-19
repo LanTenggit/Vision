@@ -80,7 +80,7 @@
         <div style="border:1px solid black;width:300px; margin:auto;" id="right">
             <div style="width:100px;margin:auto; font-weight:800">二维码解析</div>
             <div>
-                <input  type="file" id="Upload"/>
+                <input  type="file" id="Upload" onchange="uploadImg(event,this)"/>
             </div>
             <div>
                 <div id="imgshow" style="height:220px;width:300px;border:1px solid black">
@@ -104,7 +104,25 @@
 
     </div>
   <script type="text/javascript">
-     
+
+      var URL = window.URL || window.webkitURL || window.mozURL
+      function uploadImg(e, dom) {
+          var e = event || e
+          var fileObj =
+              dom instanceof HTMLElement
+                  ? dom.files[0]
+                  : $(dom)[0].files[0]
+          console.log(e)
+          console.log(dom)
+          var container = document.querySelector('#imgshow')
+          var img = new Image()
+          img.src = URL.createObjectURL(fileObj)
+          img.onload = function () {
+              container.appendChild(img)
+          }
+      }
+
+
       $(function () {
           
           var url = "";

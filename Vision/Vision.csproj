@@ -106,6 +106,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="Tesseract">
+      <HintPath>..\..\DLL配置文件\Tesseract.dll</HintPath>
+    </Reference>
     <Reference Include="ThoughtWorks.QRCode, Version=1.0.4778.30637, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ThoughtWorks.QRCode.1.1.0\lib\ThoughtWorks.QRCode.dll</HintPath>
     </Reference>
@@ -150,6 +153,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TwoWeiMaController.cs" />
+    <Compile Include="Controllers\Word_DistinguishController.cs" />
+    <Compile Include="FunctionConfig\OCRFunctionClass.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -276,6 +281,10 @@
     <Content Include="Content\layui\font\iconfont.ttf" />
     <Content Include="Content\layui\font\iconfont.woff" />
     <Content Include="Content\layui\font\iconfont.woff2" />
+    <Content Include="x64\liblept1742.dll" />
+    <Content Include="x64\libtesseract3051.dll" />
+    <Content Include="x86\liblept1742.dll" />
+    <Content Include="x86\libtesseract3051.dll" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -303,6 +312,45 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\TwoWeiMa\Index.cshtml" />
     <Content Include="Views\TwoWeiMa\View.cshtml" />
+    <Content Include="Views\Word_Distinguish\Index.cshtml" />
+    <Content Include="tessdata\configs\ambigs.train" />
+    <Content Include="tessdata\configs\api_config" />
+    <Content Include="tessdata\configs\bigram" />
+    <Content Include="tessdata\configs\box.train" />
+    <Content Include="tessdata\configs\box.train.stderr" />
+    <Content Include="tessdata\configs\digits" />
+    <Content Include="tessdata\configs\hocr" />
+    <Content Include="tessdata\configs\inter" />
+    <Content Include="tessdata\configs\kannada" />
+    <Content Include="tessdata\configs\linebox" />
+    <Content Include="tessdata\configs\logfile" />
+    <Content Include="tessdata\configs\makebox" />
+    <Content Include="tessdata\configs\quiet" />
+    <Content Include="tessdata\configs\rebox" />
+    <Content Include="tessdata\configs\strokewidth" />
+    <Content Include="tessdata\configs\unlv" />
+    <Content Include="tessdata\tessconfigs\batch" />
+    <Content Include="tessdata\tessconfigs\batch.nochop" />
+    <Content Include="tessdata\tessconfigs\matdemo" />
+    <Content Include="tessdata\tessconfigs\msdemo" />
+    <Content Include="tessdata\tessconfigs\nobatch" />
+    <Content Include="tessdata\tessconfigs\segdemo" />
+    <Content Include="tessdata\chi_sim.traineddata" />
+    <Content Include="tessdata\eng.cube.bigrams" />
+    <Content Include="tessdata\eng.cube.fold" />
+    <Content Include="tessdata\eng.cube.lm" />
+    <Content Include="tessdata\eng.cube.lm_" />
+    <Content Include="tessdata\eng.cube.nn" />
+    <Content Include="tessdata\eng.cube.params" />
+    <Content Include="tessdata\eng.cube.size" />
+    <Content Include="tessdata\eng.cube.word-freq" />
+    <Content Include="tessdata\eng.tesseract_cube.nn" />
+    <Content Include="tessdata\eng.traineddata" />
+    <Content Include="tessdata\fontyp.traineddata" />
+    <Content Include="tessdata\normal.traineddata" />
+    <Content Include="tessdata\osd.traineddata" />
+    <Content Include="tessdata\Song.traineddata" />
+    <Content Include="tessdata\Success.traineddata" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
+}
+<html>
+<head>
+    <title>
+        文字识别
+    </title>
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+</head>
+<body>
+    <div>
+        <div style="border:1px solid black;width:300px; margin:auto;" id="right">
+            <div style="width:100px;margin:auto; font-weight:800">文字识别</div>
+            <div>
+                <input type="file" id="Upload" onchange="uploadImg(event,this)"/>
+            </div>
+            <div>
+                <div id="imgshow" style="height:220px;width:300px;border:1px solid black">
+
+
+                </div>
+                <div style="width:80px;margin:auto;">
+                    <input type="button" id="uplodBtn" value="确定" style="width:80px;" />
+                </div>
+
+            </div>
+
+            <div id="messageinfo">
+                <div style="width:140px;margin:auto;font-weight:800">文字识别信息： </div>
+
+                <textarea id="messageinfotext" style="width:300px;height:95px;border:1px solid black"> </textarea>
+            </div>
+
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        $(function () {
+
+
+            $("#uplodBtn").click(function () {
+
+                var formdata = new FormData();
+                formdata.append("file", $('#Upload')[0].files[0]);
+
+                $.ajax({
+                    url: '../Word_Distinguish/Tesseract',
+                    data: formdata,
+                    type: 'post',
+                    contentType: false, // 不设置内容类型
+                    processData: false, // 不处理数据
+                    dataType: "json",
+                    success: function (res) {
+                        if (res.IsTrue) {
+                            $("#messageinfotext").val(res.Meg)
+                        }
+                    },
+                    error: function () {
+
+                    }
+                })
+            })
+
+        })
+        var URL = window.URL || window.webkitURL || window.mozURL
+        function uploadImg(e, dom) {
+            var e = event || e
+            var fileObj =
+                dom instanceof HTMLElement
+                    ? dom.files[0]
+                    : $(dom)[0].files[0]
+            console.log(e)
+            console.log(dom)
+            var container = document.querySelector('#imgshow')
+            var img = new Image()
+            img.width = 300;
+            img.height = 220;
+            img.src = URL.createObjectURL(fileObj)
+            img.onload = function () {
+                container.appendChild(img)
+            }
+        }
+       
+
+
+
+    </script>
+</body>
+
+</html>
+
