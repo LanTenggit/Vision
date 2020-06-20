@@ -100,3 +100,7 @@ D:\桌面\Vision\Vision\bin\ThoughtWorks.QRCode.dll
 D:\桌面\Vision\Vision\bin\Gma.QrCodeNet.Encoding.pdb
 D:\桌面\Vision\Vision\bin\Gma.QrCodeNet.Encoding.xml
 D:\桌面\Vision\Vision\bin\Tesseract.dll
+D:\桌面\Vision\Vision\bin\Emgu.CV.UI.dll
+D:\桌面\Vision\Vision\bin\Emgu.CV.UI.GL.dll
+D:\桌面\Vision\Vision\bin\Emgu.CV.World.dll
+D:\桌面\Vision\Vision\bin\ZedGraph.dll

@@ -1,0 +1,168 @@
+﻿
+@{
+    //ViewBag.Title = "模板匹配";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
+
+}
+
+<html>
+
+<head>
+    <tltle>模板匹配</tltle>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+    <style>
+        * {
+        padding :0px;
+        margin:0px;
+        }
+
+        #concent {
+            width: 800px;
+            height: 500px;
+            border: 1px solid black;
+            margin: auto;
+        }
+        #left {
+        width:400px;
+        height:400px;
+        border:1px solid black;
+        float:left;
+        }
+        #right {
+            width: 350px;
+            height: 400px;
+            border: 1px solid black;
+            float: right;
+        }
+
+        #MesinfoDiv {
+            width: 800px;
+            height: 100px;
+            border: 1px solid black;
+            margin: auto;
+        }
+
+    </style>
+
+
+</head>
+<body>
+    <div>
+        <div id="concent">
+            <div id="left">
+                <div><input  type="file" value="选择图片" onchange="uploadImgModel(event,this)"  id="ModelIMg"/></div>
+               <div id="imgModel" >
+
+
+               </div>
+            </div>
+
+            <div id="right">
+                <div><input type="file" value="选择图片" onchange="uploadImgPipei(event,this)" id="PipeiIMg"/></div>
+                <div id="imgPipei" >
+
+
+                </div>
+            </div>
+
+            <div style="width:100px;height:80px; margin:auto;">
+                <input type="button" value="确定" style="width:100px;height:80px; text-align:center;font-size:25px;" id="btn_sure"/>
+            </div>
+        </div>
+
+
+        <div id="MesinfoDiv">
+         
+            
+
+        </div>
+
+
+
+    </div>
+
+<script type="text/javascript">
+    $(function () {
+
+        $("#btn_sure").click(function () {
+            var formdata = new FormData();
+            formdata.append("file", $('#ModelIMg')[0].files[0]);
+            formdata.append("file1", $('#PipeiIMg')[0].files[0]);
+         
+            $.ajax({
+                url: '../PhotoModelMatching/IMgMatching',
+                data: formdata,
+                type: 'post',
+                contentType: false, // 不设置内容类型
+                processData: false, // 不处理数据
+                dataType: "json",
+                success: function (res) {
+                    if (res.IsTrue) {
+                        $("#MesinfoDiv").val(res.Meg)
+                    }
+                },
+                error: function () {
+
+                }
+
+
+
+
+            })
+
+
+
+
+        })
+
+
+
+    })
+
+    var URL = window.URL || window.webkitURL || window.mozURL
+    function uploadImgModel(e, dom) {
+        var e = event || e
+        var fileObj =
+            dom instanceof HTMLElement
+                ? dom.files[0]
+                : $(dom)[0].files[0]
+        console.log(e)
+        console.log(dom)
+        var container = document.querySelector('#imgModel')
+        var img = new Image()
+        img.width = 400;
+        img.height = 350;
+        img.src = URL.createObjectURL(fileObj)
+        img.onload = function () {
+            container.appendChild(img)
+        }
+    }
+
+
+    function uploadImgPipei(e, dom) {
+        var e = event || e
+        var fileObj =
+            dom instanceof HTMLElement
+                ? dom.files[0]
+                : $(dom)[0].files[0]
+        console.log(e)
+        console.log(dom)
+        var container = document.querySelector('#imgPipei')
+        var img = new Image()
+        img.width = 350;
+        img.height = 320;
+        img.src = URL.createObjectURL(fileObj)
+        img.onload = function () {
+            container.appendChild(img)
+        }
+    }
+
+
+</script>
+</body>
+
+</html>
+

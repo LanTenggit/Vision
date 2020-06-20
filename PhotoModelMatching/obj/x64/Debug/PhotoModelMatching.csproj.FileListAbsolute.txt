@@ -1,0 +1,13 @@
+D:\桌面\Vision\PhotoModelMatching\bin\x64\Debug\PhotoModelMatching.exe.config
+D:\桌面\Vision\PhotoModelMatching\bin\x64\Debug\PhotoModelMatching.exe
+D:\桌面\Vision\PhotoModelMatching\bin\x64\Debug\PhotoModelMatching.pdb
+D:\桌面\Vision\PhotoModelMatching\bin\x64\Debug\Emgu.CV.UI.dll
+D:\桌面\Vision\PhotoModelMatching\bin\x64\Debug\Emgu.CV.UI.GL.dll
+D:\桌面\Vision\PhotoModelMatching\bin\x64\Debug\Emgu.CV.World.dll
+D:\桌面\Vision\PhotoModelMatching\bin\x64\Debug\ZedGraph.dll
+D:\桌面\Vision\PhotoModelMatching\obj\x64\Debug\PhotoModelMatching.Form1.resources
+D:\桌面\Vision\PhotoModelMatching\obj\x64\Debug\PhotoModelMatching.Properties.Resources.resources
+D:\桌面\Vision\PhotoModelMatching\obj\x64\Debug\PhotoModelMatching.csproj.GenerateResource.Cache
+D:\桌面\Vision\PhotoModelMatching\obj\x64\Debug\PhotoModelMatching.csproj.CoreCompileInputs.cache
+D:\桌面\Vision\PhotoModelMatching\obj\x64\Debug\PhotoModelMatching.exe
+D:\桌面\Vision\PhotoModelMatching\obj\x64\Debug\PhotoModelMatching.pdb
